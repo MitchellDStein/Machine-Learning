@@ -33,3 +33,13 @@ X = np.array(ct.fit_transform(X), dtype=np.float)
 from sklearn.preprocessing import LabelEncoder
 y = LabelEncoder().fit_transform(y)
 
+# Splitting the dataset into test and trainging sets
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0) # random state number is to test with online course
+
+# Feature Scaling 
+# Creating the train and test set
+from sklearn.preprocessing import StandardScaler
+sc_X = StandardScaler()
+X_train = sc_X.fit_transform(X_train)
+X_test = sc_X.transform(X_test)
