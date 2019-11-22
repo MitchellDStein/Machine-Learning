@@ -38,8 +38,10 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0) # random state number is to test with online course
 
 # Feature Scaling 
-# Creating the train and test set
 from sklearn.preprocessing import StandardScaler
 sc_X = StandardScaler()
 X_train = sc_X.fit_transform(X_train)
 X_test = sc_X.transform(X_test)
+# do not need to do scaling for y as its from 0-1
+# sc_y = StandardScaler()
+# y_train = sc_y.fit_transform(y_train)
