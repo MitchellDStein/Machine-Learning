@@ -14,22 +14,17 @@ y = dataset.iloc[:, 1].values
 
 # Splitting the dataset into test and trainging sets
 from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 1/3)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 1/3, random_state = 0)
 
 # Visualizing data using pyplot
 plt.plot(X, y, 'g-', label = "Dataset")
 plt.plot(X_train, y_train, 'r+', label="Training Set")
 plt.plot(X_test, y_test, 'bx', label="Test Set")
+plt.title("Salary vs Experience (Training Set)")
+plt.xlabel("Experience")
+plt.ylabel("Salary")
 plt.legend(loc = "upper left")
 plt.show
-
-# Feature Scaling 
-## from sklearn.preprocessing import StandardScaler
-## sc_X = StandardScaler()
-## X_train = sc_X.fit_transform(X_train)
-## X_test = sc_X.transform(X_test)
-## sc_y = StandardScaler()
-## y_train = sc_y.fit_transform(y_train)
 
 # Fitting Simple Linear Regression to the Training Set
 from sklearn.linear_model import LinearRegression
@@ -38,3 +33,21 @@ regressor.fit(X_train, y_train)
 
 # Predicting the Test set results
 y_prediction = regressor.predict(X_test)
+
+# Visualizing Trainging set results
+plt.plot(X_train, y_train, 'ro', label="Training Set")
+plt.plot(X_train, regressor.predict(X_train), 'b-', label = 'Predictions')
+plt.title("Salary vs Experience (Training Set)")
+plt.xlabel("Experience")
+plt.ylabel("Salary")
+plt.legend(loc = "upper left")
+plt.show
+
+# Visualizing Test set results
+plt.plot(X_test, y_test, 'ro', label="Testing Set")
+plt.plot(X_train, regressor.predict(X_train), 'b-', label = 'Predictions')
+plt.title("Salary vs Experience (Test Set)")
+plt.xlabel("Experience")
+plt.ylabel("Salary")
+plt.legend(loc = "upper left")
+plt.show
