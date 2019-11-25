@@ -40,3 +40,12 @@ y_prediction = regressor.predict(X_test)
 
 # BACKWARD ELIMINATION STARTS HERE
 # ================================
+# Import Libraries
+import statsmodels.api as sm
+# add new column of 1s to act as constant b0 to fit with regressor formula
+# Code appends X to the end of an array of 50 1s instead of 50 1s at the end of X
+X = np.append(arr = np.ones((50, 1)).astype(int), values = X, axis = 1)
+X_optimal =  X[:, [0, 1, 2, 3, 4, 5]] # add all featues to delete them as BWE works
+# Ordinary Least Squares (OLS)
+regressor_OLS = sm.OLS(endog = y, exog = X_optimal).fit()
+regressor_OLS.summary()
