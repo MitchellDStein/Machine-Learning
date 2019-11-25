@@ -27,7 +27,7 @@
 1. Select a significance level to stay in the model. (e.g. SL = 0.05)
 2. Fit the full model with all possible predictors
 3. Consider the predictor with the **highest** P-value.
-    - If P > SL, go to step 4, otherwise go to ***FIN*** $\downarrow$
+    - If P > SL, go to step 4, otherwise go to ***FIN*** ![alt](https://latex.codecogs.com/gif.latex?%5Cdownarrow)
 4. Remove the predictor (variable with the highest P-value)
 5. Fit model without the variable*
     - Repeat to step 3
@@ -42,7 +42,7 @@
 4. Consider the predictor with the **lowest** P-value.
    - If P < SL, go to STEP 3
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$\downarrow$
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![alt](https://latex.codecogs.com/gif.latex?%5Cdownarrow)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***FIN:*** keep previous model
 
@@ -55,7 +55,7 @@
    - Repeat to step 2
 4. No new variables can enter and no old variables can exit
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$\downarrow$
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![alt](https://latex.codecogs.com/gif.latex?%5Cdownarrow)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***FIN:*** Your model is ready
 
@@ -65,6 +65,6 @@
 2. Construct All Possible Regression Models: $2^N-1$ total combinations
 3. Select the one with the best criterion
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$\downarrow$
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![alt](https://latex.codecogs.com/gif.latex?%5Cdownarrow)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***FIN:*** Your model is ready
