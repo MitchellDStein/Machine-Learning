@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Reading Data
-dataset = pd.read_csv(r'Regression\Simple Linear Regression\Salary_Data.csv')
+dataset = pd.read_csv('Regression/Simple Linear Regression/Salary_Data.csv')
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, 1].values
 

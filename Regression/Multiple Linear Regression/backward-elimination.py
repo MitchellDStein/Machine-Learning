@@ -1,4 +1,4 @@
-# Mulriple Linear Regression
+# Multiple Linear Regression
 
 # Importing libraries
 import numpy as np
@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # import the dataset
-dataset = pd.read_csv(r'Regression\Multiple Linear Regression\50_Startups.csv')
+dataset = pd.read_csv("Regression/Multiple Linear Regression/50_Startups.csv")
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, 4].values
 
@@ -38,14 +38,14 @@ regressor.fit(X_train, y_train)
 # Predict the Test Set results
 y_prediction = regressor.predict(X_test)
 
-# BACKWARD ELIMINATION STARTS HERE
-# ================================
+
+# BACKWARD ELIMINATION
+
 # Import Libraries
 import statsmodels.api as sm
-# add new column of 1s to act as constant b0 to fit with regressor formula
-# Code appends X to the end of an array of 50 1s instead of 50 1s at the end of X
+
+# Appends X to an array of 1's
 X = np.append(arr = np.ones((50, 1)).astype(int), values = X, axis = 1)
 X_optimal =  X[:, [0, 1, 2, 3, 4, 5]] # add all featues to delete them as BWE works
-# Ordinary Least Squares (OLS)
-regressor_OLS = sm.OLS(endog = y, exog = X_optimal).fit()
+regressor_OLS = sm.OLS(endog = y, exog = X_optimal).fit() # Ordinary Least Squares (OLS)
 regressor_OLS.summary()
