@@ -39,13 +39,22 @@ regressor.fit(X_train, y_train)
 y_prediction = regressor.predict(X_test)
 
 
-# BACKWARD ELIMINATION
-
+# AUTOMATIC Backwards Elimination
 # Import Libraries
 import statsmodels.api as sm
+def backwardElimination(x_optimal, sl):
+    numVars = len(x_optimal[0])
+    for i in range(0, numVars):
+        regressor_OLS = sm.OLS(y, x_optimal).fit()
+        maxVar = max(regressor_OLS.pvalues).astype(float)
+        if maxVar > sl:
+            for j in range(0, numVars - i):
+                if (regressor_OLS.pvalues[j].astype(float) == maxVar):
+                    x_optimal = np.delete(x_optimal, j, 1)
+    regressor_OLS.summary()
+    return x_optimal
 
-# Appends X to an array of 1's
-X = np.append(arr = np.ones((50, 1)).astype(int), values = X, axis = 1)
-X_optimal =  X[:, [0, 1, 2, 3, 4, 5]] # add all featues to delete them as BWE works
-regressor_OLS = sm.OLS(endog = y, exog = X_optimal).fit() # Ordinary Least Squares (OLS)
-regressor_OLS.summary()
+# significance value to test p-values against
+SL = 0.05
+X_optimal = X[:, [0, 1, 2, 3, 4]]
+X_Modeled = backwardElimination(X_optimal, SL)
