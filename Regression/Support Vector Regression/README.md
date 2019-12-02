@@ -8,5 +8,5 @@
 
 - SVR performs linear regression in a higher "dimensional space".
 - We can think of SVR as if each data point in the training represents it's own dimension. When you evaluate your kernel between a test point and a point in the training set, the resulting value gives you the coordinate of your test point in that dimension.
-- The vector we get when we evaluate the point for all points in the training set, ![alt](https://latex.codecogs.com/gif.download?%5Cvec%7Bk%7D) is the representation of the test poitns in the higher dimensional space.
+- The vector we get when we evaluate the point for all points in the training set, ![k vector](https://latex.codecogs.com/gif.latex?%5Cvec%7Bk%7D) is the representation of the test poitns in the higher dimensional space.
 - Once you have that vector you then use it to perform a linear regression.
