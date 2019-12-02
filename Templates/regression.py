@@ -13,14 +13,21 @@ y = dataset.iloc[:, 2].values
 # from sklearn.model_selection import train_test_split
 # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0) # random state number is to test with online course
 
+# Feature Scaling 
+# from sklearn.preprocessing import StandardScaler
+# sc_X = StandardScaler()
+# X_train = sc_X.fit_transform(X_train)
+# X_test = sc_X.transform(X_test)
+
 # Fitting Regression Model to the data
+# create regressor here
 
 # Predict a new result with Regression
 y_pred = regressor.predict(np.array([[6.5]]))
 
 # Visualize Regression results
 plt.plot(X, y, 'r.', label = "")
-plt.plot(X_grid, regressor.predict(X)), 'g-', label = "")
+plt.plot(X, regressor.predict(X), 'g-', label = "")
 plt.title("__________ (Regression Model)")
 plt.xlabel("")
 plt.ylabel("")
@@ -32,7 +39,7 @@ plt.show
 X_grid = np.arange(min(X), max(X), step = 0.1) # creates a vector from min X to max X at 0.1 intervals
 X_grid = X_grid.reshape((len(X_grid), 1)) # reshape the vector to an array
 plt.plot(X, y, 'r.', label = "")
-plt.plot(X_grid, regressor.predict(X_grid)), 'g-', label = "")
+plt.plot(X_grid, regressor.predict(X_grid), 'g-', label = "")
 plt.title("__________ (Regression Model)")
 plt.xlabel("")
 plt.ylabel("")
